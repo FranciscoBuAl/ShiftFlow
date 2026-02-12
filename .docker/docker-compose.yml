@@ -1,11 +1,16 @@
-version: '3.8'
 services:
   postgres:
     image: postgres:17
-    container_name: sgah_db
+    container_name: sgah-postgres
+    restart: unless-stopped
     environment:
-      POSTGRES_USER: sgah_user
-      POSTGRES_PASSWORD: sgah_password
-      POSTGRES_DB: sgah_planning
+      POSTGRES_USER: sgah
+      POSTGRES_PASSWORD: sgah
+      POSTGRES_DB: sgah_db
     ports:
       - "5432:5432"
+    volumes:
+      - sgah_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  sgah_postgres_data:
