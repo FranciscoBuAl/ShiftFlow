@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:17
+    container_name: sgah_db
+    environment:
+      POSTGRES_USER: sgah_user
+      POSTGRES_PASSWORD: sgah_password
+      POSTGRES_DB: sgah_planning
+    ports:
+      - "5432:5432"
